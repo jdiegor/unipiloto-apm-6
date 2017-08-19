@@ -1,0 +1,101 @@
+
+<h1>Estudiante</h1>
+<p><b>Nombre Completo: </b>{{objStudent.name + ' ' + objStudent.lastname}}</p>
+
+
+
+
+<h1>{{ title }}</h1>
+<h2>{{ product.name }} details!</h2>
+<label for="id">id</label> <span>{{ product.id }}</span><br />
+<label for="name">name</label> <span>{{ product.name }}</span><br />
+<label for="description">description</label> <span>{{ product.description }}</span><br />
+<label for="type">type</label> <span>{{ product.type }}</span><br />
+<label for="price">price</label> <span>{{ product.price }}</span><br />
+<label for="quantity">quantitiy</label> <span>{{ product.quantitiy }}</span><br />
+
+<div>
+  <hr />
+  <label>Name: </label><br />
+  <input [(ngModel)]="product.name" placeholder="name"><br />
+  <label>Description: </label><br />
+  <textarea [(ngModel)]="product.description" placeholder="description"></textarea><br />
+  <label>Type: </label><br />
+  <input [(ngModel)]="product.type" placeholder="tipo"><br />
+  <label>Price: </label><br />
+  <input [(ngModel)]="product.price" placeholder="precio"><br />
+  <label>Quantity: </label><br />
+  <input [(ngModel)]="product.quantity" placeholder="cantidad"><br />
+</div>
+
+
+
+<h1>PERSONA</h1>
+<h2>Datos del estudiante</h2>
+<label for="name">NOMBRE</label> <span>{{ objStudent.name }}</span><br />
+<label for="lastname">APELLIDO</label> <span>{{ objStudent.lastname }}</span><br />
+<label for="age">EDAD</label> <span>{{ objStudent.age }}</span><br />
+<label for="grade">GRADO</label> <span>{{ objStudent.grade }}</span><br />
+<label for="group">GRUPO</label> <span>{{ objStudent.group }}</span><br />
+
+<div>
+  <hr />
+  <label>NOMBRE: </label><br />
+  <input [(ngModel)]="objStudent.name" placeholder="nombre"><br />
+  <label>APELLIDO: </label><br />
+  <textarea [(ngModel)]="objStudent.lastname" placeholder="apellido"></textarea><br />
+  <label>EDAD: </label><br />
+  <input [(ngModel)]="objStudent.age" placeholder="edad"><br />
+  <label>GRADO: </label><br />
+  <input [(ngModel)]="objStudent.grade" placeholder="grado"><br />
+  <label>GRUPO: </label><br />
+  <input [(ngModel)]="objStudent.group" placeholder="grupo"><br />
+</div>
+
+
+
+<h1>{{ title }}</h1>
+<ul>
+  <li *ngFor="let product of products"
+      (click)="onSelect(product)">
+    <span>{{product.id}}</span> {{product.name}}
+  </li>
+</ul>
+
+<div *ngIf="selected">
+  <hr />
+  <label>Name: </label><br />
+  <input [(ngModel)]="selected.name" placeholder="name"><br />
+  <label>Description: </label><br />
+  <textarea [(ngModel)]="selected.description" placeholder="description"></textarea><br />
+  <label>Type: </label><br />
+  <input [(ngModel)]="selected.type" placeholder="tipo"><br />
+  <label>Price: </label><br />
+  <input [(ngModel)]="selected.price" placeholder="precio"><br />
+  <label>Quantity: </label><br />
+  <input [(ngModel)]="selected.quantity" placeholder="cantidad"><br />
+</div>
+
+
+
+
+<h1>PROFESORES</h1>
+<ul>
+  <li *ngFor="let teacher of arrTeachers"
+      (click)="onSelectTeacher(teacher)" class="clickHand">>
+    <span> {{teacher.name}}</span> {{teacher.lastname}}
+  </li>
+</ul>
+
+<div *ngIf="selectedTeacher">
+  <hr />
+  <label>Nombre: </label><br />
+  <input [(ngModel)]="selectedTeacher.name" placeholder="Nombre"><br />
+  <label>Apellido: </label><br />
+  <textarea [(ngModel)]="selectedTeacher.lastname" placeholder="Apellido"></textarea><br />
+  <label>Age: </label><br />
+  <input [(ngModel)]="selectedTeacher.age" placeholder="Edad"><br />
+  <label>First Grade: </label><br />
+  <input [(ngModel)]="selectedTeacher.grades[0]" placeholder="grado"><br />
+
+</div>
