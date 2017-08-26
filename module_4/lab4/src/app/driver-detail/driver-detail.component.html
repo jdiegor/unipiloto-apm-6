@@ -4,13 +4,19 @@
 
 <div *ngIf="driverEdit">
   <hr />
+
+ <img [src]="driverEdit.photo" class="two columns"/>
+  
+
   <label class="four columns">Nombre: </label><br />
-  <input [(ngModel)]="driverEdit.first_name" placeholder="Nombre" class="eight columns"><br />
+  <input [(ngModel)]="driverEdit.first_name" placeholder="Nombre" class="four columns"><br />
   <label class="four columns">Apellido: </label><br />
   <textarea [(ngModel)]="driverEdit.last_name" placeholder="Apellido"> class="eight columns"</textarea><br />
   <label class="four columns">Edad: </label><br />
   <input [(ngModel)]="driverEdit.age" placeholder="Edad" class="eight columns"><br />
   <label class="four columns">Identificación: </label><br />
   <input [(ngModel)]="driverEdit.id" placeholder="Identificacion" class="eight columns"><br />
+  
 
+  
 </div>
