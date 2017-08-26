@@ -1,0 +1,32 @@
+
+  <h1>
+  VENTA DE CARROS
+  </h1>
+  <h2>
+    Componente de Carros
+  </h2>
+  <hr/><hr/>
+
+<h1>LISTA DE VEHICULOS</h1>
+<ul>
+  <li *ngFor="let car of arrautos"
+      (click)="onSelectTeacher(car)" class="clickHand">
+    <span> {{car.mark}}</span> {{car.plate}}
+  </li>
+</ul>
+
+<h1>DETALLE DE VEHICULOS</h1>
+<div *ngIf="carEdit">
+  <hr />
+  <label>Marca: </label><br />
+  <input [(ngModel)]="carEdit.mark" placeholder="Marca"><br />
+  <label>Color: </label><br />
+  <textarea [(ngModel)]="carEdit.color" placeholder="Color"></textarea><br />
+  <label>Placa: </label><br />
+  <input [(ngModel)]="carEdit.plate" placeholder="Placa"><br />
+  <label>Modelo: </label><br />
+  <input [(ngModel)]="carEdit.build_year" placeholder="Modelo"><br />
+
+</div>
+
+<app-master></app-master>

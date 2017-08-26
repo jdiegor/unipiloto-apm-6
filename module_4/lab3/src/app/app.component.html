@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-car-shop>
+
+</app-car-shop>
+
+
+
+
+<h1>PROPIETARIOS DE VEHICULOS</h1>
+<hr />
+<ul>
+  <li *ngFor="let driver of arrdrivers">
+    <span> {{driver.first_name}}</span> {{driver.last_name}} <span> {{driver.age}} años</span>
+  </li>
+</ul>
+
+
+<h1>{{ title }}</h1>
+<ul>
+  <li *ngFor="let product of products"
+      (click)="onSelect(product)">
+    <span>{{product.id}}</span> {{product.name}}
+  </li>
+</ul>
+
+<product-detail [product]="selected"></product-detail>
