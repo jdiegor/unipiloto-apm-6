@@ -1,0 +1,16 @@
+<hr/>
+<h1>DETALLE DEL ESTUDIANTE</h1>
+<hr/>
+
+<div *ngIf="studentEdit">
+  <hr />
+  <label class="four columns">Nombre: </label><br />
+  <input [(ngModel)]="studentEdit.name" placeholder="Nombre" class="eight columns"><br />
+  <label class="four columns">Apellido: </label><br />
+  <textarea [(ngModel)]="studentEdit.lastname" placeholder="Apellido"> class="eight columns"</textarea><br />
+  <label class="four columns">Edad: </label><br />
+  <input [(ngModel)]="studentEdit.age" placeholder="Edad" class="eight columns"><br />
+  <label class="four columns">Grado: </label><br />
+  <input [(ngModel)]="studentEdit.grade" placeholder="Grado" class="eight columns"><br />
+
+</div>

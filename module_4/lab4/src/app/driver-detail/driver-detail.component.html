@@ -1,0 +1,16 @@
+<hr/>
+<h1>DETALLE DEL CONDUCTOR</h1>
+<hr/>
+
+<div *ngIf="driverEdit">
+  <hr />
+  <label class="four columns">Nombre: </label><br />
+  <input [(ngModel)]="driverEdit.first_name" placeholder="Nombre" class="eight columns"><br />
+  <label class="four columns">Apellido: </label><br />
+  <textarea [(ngModel)]="driverEdit.last_name" placeholder="Apellido"> class="eight columns"</textarea><br />
+  <label class="four columns">Edad: </label><br />
+  <input [(ngModel)]="driverEdit.age" placeholder="Edad" class="eight columns"><br />
+  <label class="four columns">Identificación: </label><br />
+  <input [(ngModel)]="driverEdit.id" placeholder="Identificacion" class="eight columns"><br />
+
+</div>

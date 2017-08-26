@@ -1,0 +1,9 @@
+<h1>CONDUCTORES DE VEHICULOS</h1>
+
+<ul>
+  <li *ngFor="let driver of arrdrivers" (click)="onSelectDiver(driver)">
+    <span> {{driver.first_name}}</span> {{driver.last_name}} <span> {{driver.age}} años</span>
+  </li>
+</ul>
+
+<app-driver-detail [driverEdit]="selectedDriver"></app-driver-detail>

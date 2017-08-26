@@ -1,10 +1,10 @@
 export class Master {
     constructor(
-        id: number,
-        firstname: string,
-        lastname: string,
-        topic: string, 
-        grade: number
+        public id: number,
+        public firstname: string,
+        public lastname: string,
+        public topic: string, 
+        public grade: number
     ){}
     
 }

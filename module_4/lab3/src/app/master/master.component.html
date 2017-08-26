@@ -1,6 +1,10 @@
 <div class="content">
-  <p>
-    master works!
-  </p>
+  <h1>LISTA DE MAESTROS</h1>
+  <ul>
+    <li *ngFor="let objmaster of arrmasters"
+        (click)="onSelectMaster(objmaster)" class="clickHand">
+      <span> {{objmaster.firstname}}</span> {{objmaster.lastname}}
+    </li>
+  </ul>
 </div>
 

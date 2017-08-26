@@ -1,0 +1,11 @@
+
+
+<h1>LISTA DE ESTUDIANTES</h1>
+<ul>
+  <li *ngFor="let student of arrstudents"
+      (click)="onSelectStudent(student)" class="clickHand">
+    <span> {{student.name}}</span> {{student.lastname}}
+  </li>
+</ul>
+
+<app-student-detail [studentEdit]="selectedStudent"></app-student-detail>
