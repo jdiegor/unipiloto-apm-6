@@ -7,6 +7,7 @@ import {PageTwoComponent} from "./page-two/page-two.component";
 import {StudentComponent} from "./student/student.component";
 import {ErrorComponent} from "./error/error.component";
 import {DriverComponent} from './driver/driver.component';
+import {ProductsComponent} from './products/products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },   //CON ESTE DEFINE LA RUTA POR DEFECTO 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'page-two', component: PageTwoComponent },      //CON ESTE DEFINE LA RUTA A LA PAGINA PAGE TWO
   { path: 'student', component: StudentComponent },      //CON ESTE DEFINE LA RUTA A LA PAGINA PAGE student
   { path: 'driver', component: DriverComponent },      //CON ESTE DEFINE LA RUTA A LA PAGINA PAGE Driver
+  { path: 'products', component: ProductsComponent },      //CON ESTE DEFINE LA RUTA A LA PAGINA PAGE Productos
   { path: 'error', component: ErrorComponent },      //CON ESTE DEFINE LA RUTA A LA PAGINA PAGE ERROR
   { path: '**', redirectTo: '/error', pathMatch: 'full' }, //CON ESTE DEFINE LA RUTA CUANDO LA URL ES INVALIDA
 ];

@@ -15,6 +15,10 @@ import { StudentComponent } from './student/student.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { DriverComponent } from './driver/driver.component';
 import { DriverDetailComponent } from './driver-detail/driver-detail.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductsService } from "./service/products-service";
+import { DriversService } from "./service/drivers-service";
 
 
 @NgModule({
@@ -28,14 +32,19 @@ import { DriverDetailComponent } from './driver-detail/driver-detail.component';
     StudentComponent,
     StudentDetailComponent,
     DriverComponent,
-    DriverDetailComponent
+    DriverDetailComponent,
+    ProductsComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [{
+  providers: [
+    ProductsService,
+    DriversService,
+    {
       provide: APP_BASE_HREF, useValue : '/'
     }],
   bootstrap: [AppComponent]
