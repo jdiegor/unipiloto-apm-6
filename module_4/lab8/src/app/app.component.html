@@ -1,0 +1,27 @@
+<h1>{{ title }}</h1>
+
+<div>
+  <label>Product name:</label> <input #productName />
+  <button (click)="add(productName.value); productName.value=''">
+    Add
+  </button>
+</div>
+
+
+<hr />
+<ul>
+  <li *ngFor="let product of products"
+      (click)="onSelect(product)">
+    <span>{{product.id}}</span> {{product.name}}
+  </li>
+</ul>
+
+<app-product-detail [product]="selected"></app-product-detail>
+
+<h1>Lista de POSTS</h1>
+<hr />
+<ul>
+  <li *ngFor="let post of posts">
+    <span><b>{{post.title}}</b></span> <p>{{post.body}}</p>
+  </li>
+</ul>
