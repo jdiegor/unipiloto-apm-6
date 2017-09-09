@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to FIREBASE
+  </h1>
+  <img width="300" src="https://firebase.google.com/images/home-top-illo-layer-apps.png">
+
+<p>
+  <label>Nombre: </label>
+    <input [(ngModel)]="name" placeholder="Nombre">
+    </p>
+
+    <p>
+  <label>Apellido: </label>
+    <input [(ngModel)]="lastname" placeholder="Apellido">
+    </p>
+  <p>
+    <label>Edad: </label>
+    <input type="number" [(ngModel)]="age" placeholder="Edad"> 
+    </p>
+  <p>
+    <button (click)="saveRecord()">GUARDAR</button>
+  </p>
+
+  <p>
+    <button (click)="updateAge()">ACTUALIZAR EDAD</button>
+  </p>
+
+  <p>
+    <button (click)="delete()">ELIMINAR</button>
+  </p>
+
+  <h2>Lista de Personas</h2>
+  <hr/>
+
+  <table style="padding-left: 400px">
+    <tr *ngFor="let item of items | async" >
+      <td> <img src="https://www.gravatar.com/avatar/099200619bae3cc285ec6c67f61116b3?default=https://img.weblogssl.com/css/genbeta/v7/images/avatar.jpg"/></td>
+      <td> <b>{{ item.firstname }} {{ item.lastname }}</b></td>
+      <td> <i>{{ item.age }} Años</i></td>
+      <td> <button (click)="deleteItem(item);">Borrar</button></td>
+    </tr>
+  </table>
+
+  
+
+</div>
+
