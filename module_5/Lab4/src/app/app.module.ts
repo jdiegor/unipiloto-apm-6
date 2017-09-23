@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {TabPageModule} from '../pages/tab/tab.module';
+import {ProfilePage} from '../pages/profile/profile';
 
 
 
@@ -18,7 +19,8 @@ import {TabPageModule} from '../pages/tab/tab.module';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ProfilePage
  
   ],
   imports: [
@@ -30,7 +32,8 @@ import {TabPageModule} from '../pages/tab/tab.module';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ProfilePage
 
   ],
   providers: [

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,5 +17,10 @@
 
 
 <ion-content padding>
+
+<!-- Tener en cuenta la imagen que se agrega en three.scss -->
+  <ion-scroll scrollX="true" scrollY="true" style="height: 100%;">
+    <div class="map"></div>
+  </ion-scroll>
 
 </ion-content>

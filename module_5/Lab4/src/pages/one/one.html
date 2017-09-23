@@ -10,15 +10,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>One</ion-title>
+    <ion-title>MODALS</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 
-     <h1>PRIMER TAB</h1>
+     <h1>MODAL TYPES</h1>
     <img src="https://gananci.com/wp-content/uploads/2015/02/Un-mono-con-una-camisa-y-unas-gafas-enfrente-de-un-ordenador-trabajando.jpg" />
 
- 
+       <button ion-button secondary (click)="presentProfileModal()" block>Abrir el Modal</button>
+
+      <button ion-button (click)="presentAlert()" color="danger" block>Alert Modal</button>
+      <button ion-button (click)="presentConfirm()" color="light" block>Confirm Modal</button>
+      <button ion-button (click)="presentPrompt()" color="dark" block>Prompt Modal</button>
+
 </ion-content>
