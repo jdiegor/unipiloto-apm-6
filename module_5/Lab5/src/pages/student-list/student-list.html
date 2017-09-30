@@ -22,7 +22,7 @@
      <button color="danger" ion-fab mini (click)="createStudent()"><ion-icon name="add"></ion-icon></button>
    </ion-fab>
    <ion-list>
-    <ion-item *ngFor="let student of arrStudents" >
+    <ion-item *ngFor="let student of studentService.arrStudents" >
       <ion-avatar item-start>
         <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-rey.png">
       </ion-avatar>

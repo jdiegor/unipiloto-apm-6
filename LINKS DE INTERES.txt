@@ -1,2 +1,8 @@
 1. Buscador con Observables 
 http://plnkr.co/edit/Bpa4RiTKu8fd0oYKVskT?p=preview
+
+2. Como aprender facilmente observables 
+https://codekstudio.com/post-blog/conceptos-observables-rxjs-y-angular-2-javascript-reactivo-y-funcional/57d1e2840897131b5ec54b90
+
+3. Como hacer un autocomplete con knockoutjs
+https://github.com/rniemeyer/knockout-jqAutocomplete

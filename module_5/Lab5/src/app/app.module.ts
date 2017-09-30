@@ -14,6 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 /* Este plugin es propio de ionic  Puede utilizar WebSql, Indexdb o SQlite*/
 import { IonicStorageModule } from '@ionic/storage';
 
+import { StudentService } from '../services/student-service';
+
 /* IMPORTANTE: 
    sin embargo, si sq quisiera emular la bd en el browser es probable que este otro plugin funsione. Seria con un provider paralelo al de SQLite
    https://github.com/Microsoft/cordova-plugin-websql  */
@@ -45,6 +47,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
+    StudentService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

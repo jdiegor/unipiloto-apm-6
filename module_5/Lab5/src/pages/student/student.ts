@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
+import { StudentService} from '../../services/student-service';
 
 /**
  * Generated class for the StudentPage page.
@@ -18,10 +19,10 @@ import { Storage } from '@ionic/storage';
 export class StudentPage {
 
     StudentForm: FormGroup;
-    arrStudents: Array<any>;
+    //arrStudents: Array<any>;
 
-  constructor(public navCtrl: NavController, private storage: Storage, public formBuilder: FormBuilder, private navParams: NavParams, private alertCtrl : AlertController) {
-    this.arrStudents = new Array<any>();
+  constructor(public navCtrl: NavController, private storage: Storage, public formBuilder: FormBuilder, private navParams: NavParams, private alertCtrl : AlertController, private studentService: StudentService) {
+    //this.studentService.arrStudents = new Array<any>();
     this.StudentForm = this.createForm();
   }
 
@@ -40,7 +41,13 @@ export class StudentPage {
     
     this.storage.get('Students')
   	.then(result => {
-      this.arrStudents = result; 
+      if(result) {
+        this.studentService.arrStudents = result; 
+      }
+      else {
+        this.studentService.arrStudents = []; 
+      }
+      
     }) 
     .catch(error => console.error(error));
     
@@ -48,8 +55,8 @@ export class StudentPage {
   }
 
    saveForm(){
-    this.arrStudents.push(this.StudentForm.value);
-    this.storage.set('Students', this.arrStudents);
+    this.studentService.arrStudents.push(this.StudentForm.value);
+    this.storage.set('Students', this.studentService.arrStudents);
     
     this.presentAlert(); 
     
@@ -66,5 +73,7 @@ export class StudentPage {
       buttons: ['Aceptar']
     });
     alert.present();
+
+    this.navCtrl.pop();
   }
 }

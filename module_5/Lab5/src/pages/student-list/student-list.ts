@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { StudentPage } from '../student/student';
+import { StudentService} from '../../services/student-service';
 
 /**
  * Generated class for the StudentListPage page.
@@ -15,24 +16,30 @@ import { StudentPage } from '../student/student';
   selector: 'page-student-list',
   templateUrl: 'student-list.html',
 })
-export class StudentListPage {
+export class StudentListPage implements OnInit {
 
   arrStudents: Array<any>; 
-  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams, private studentService: StudentService) {
   }
 
   ionViewDidLoad() {
     
-    this.storage.get('Students')
-  	.then(result => {
-      this.arrStudents = result; 
-    }) 
-    .catch(error => console.error(error));
     
-    console.log('ionViewDidLoad StudentListPage');
   }
 
   createStudent() {
     this.navCtrl.push(StudentPage);
+  }
+
+  ngOnInit(){
+/*
+    this.storage.get('Students')
+  	.then(result => {
+      this.studentService.arrStudents
+      this.arrStudents = result; 
+    }) 
+    .catch(error => console.error(error));
+    */
+    console.log('ionViewDidLoad StudentListPage');
   }
 }
