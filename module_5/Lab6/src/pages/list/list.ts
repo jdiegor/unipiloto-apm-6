@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import {ProductServiceProvider} from "../../providers/product-service/product-service";
+import {ProductModalPage} from "../product-modal/product-modal";
+import {ProductDetailPage} from "../product-detail/product-detail";
 
 @Component({
   selector: 'page-list',
@@ -9,8 +12,10 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  dataDB: string;
+  showExport: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public productService: ProductServiceProvider) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -28,10 +33,35 @@ export class ListPage {
     }
   }
 
+  public itemSelected(item: any) {
+    this.navCtrl.push(ProductDetailPage, {id: item.id});
+  }
+
+  public addProductModal() {
+    let addProductModal = this.modalCtrl.create(ProductModalPage, {});
+    addProductModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    addProductModal.present();
+    this.showExport = false;
+  }
+
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
       item: item
     });
   }
+
+  public showBackupDB() {
+    this.productService.getBackupdb()
+    .then((data) => {
+      this.dataDB = JSON.stringify(data);
+      this.showExport = true;
+    })
+    .catch((error) => {
+      this.dataDB = JSON.stringify(error);
+    })
+  }
+
 }

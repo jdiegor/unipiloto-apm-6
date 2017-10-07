@@ -3,21 +3,34 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>SQLite</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
+  
+
+  <!--
+  <ion-fab top right edge>
+    
+  </ion-fab>
+  <ion-fab top  right edge>
+    
+  </ion-fab>
+  -->
+<ion-fab top right edge>
+  <button ion-fab><ion-icon name="md-more"></ion-icon></button>
+  <ion-fab-list side="left">
+    <button ion-fab mini (click)="showBackupDB()"><ion-icon name="download"></ion-icon></button>
+    <button ion-fab mini (click)="addProductModal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+  <ion-list *ngIf="!showExport">
+    <button ion-item *ngFor="let item of productService.listProducts" (click)="itemSelected(item)">
+      {{ item.name }}
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+  <p *ngIf="showExport">{{ dataDB }}</p>
+  
 </ion-content>

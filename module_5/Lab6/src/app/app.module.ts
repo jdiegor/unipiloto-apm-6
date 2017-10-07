@@ -14,12 +14,22 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Device } from '@ionic-native/device';
 import { Camera} from '@ionic-native/camera';
+import {SQLite} from "@ionic-native/sqlite";
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
+
+import { DbServiceProvider } from '../providers/db-service/db-service';
+import { ProductServiceProvider } from '../providers/product-service/product-service';
+
+import {ProductModalPage} from "../pages/product-modal/product-modal";
+import {ProductDetailPage} from "../pages/product-detail/product-detail";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ProductModalPage,
+    ProductDetailPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +39,9 @@ import { Camera} from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    ProductModalPage,
+    ProductDetailPage
   ],
   providers: [
     StatusBar,
@@ -39,7 +51,11 @@ import { Camera} from '@ionic-native/camera';
     Geolocation,
     Device,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SQLite,
+    SQLitePorter,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DbServiceProvider,
+    ProductServiceProvider
   ]
 })
 export class AppModule {}
