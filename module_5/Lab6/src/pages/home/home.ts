@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { Dialogs } from '@ionic-native/dialogs';
 import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Device } from '@ionic-native/device';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'page-home',
@@ -10,8 +12,25 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, private dialogs:Dialogs, private network:Network, private geolocation:Geolocation) {
+  public image: string;
+    
+  constructor(public navCtrl: NavController, private dialogs:Dialogs, private network:Network, private geolocation:Geolocation, private device:Device, private camera: Camera) {
 
+  }
+
+  getPicture() {
+  	const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+  	this.camera.getPicture(options).then(imageData => {
+      this.image = 'data:image/jpeg;base64,' + imageData;
+      }, err => {
+        console.error(err);
+    });
   }
 
   getPosition() {
@@ -28,6 +47,12 @@ export class HomePage {
         .then(() => console.log('Dialog dismissed'))
         .catch(e => console.log('Error displaying dialog', e));
     });
+  }
+
+  deviceInfo() {
+    this.dialogs.alert('DISPOSITIVO: \n Plataforma: ' + this.device.platform + '\n Fabricante: ' + this.device.manufacturer + '\n Version: ' + this.device.version)
+    .then(() => console.log('Dialog dismissed'))
+    .catch(e => console.log('Error displaying dialog', e));
   }
 
   networkInfo() {

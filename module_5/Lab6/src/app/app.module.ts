@@ -12,6 +12,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
 import { Dialogs } from '@ionic-native/dialogs';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Device } from '@ionic-native/device';
+import { Camera} from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     Network,
     Dialogs,
     Geolocation,
+    Device,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
